@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Mobile Developer Test</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="delete">Delete</string>
+    <string name="offline_stories">offline_stories</string>
+    <string name="api_url">https://hn.algolia.com/api/v1/search_by_date?query=android</string>
+    <string name="blacklist">blacklist</string>
+    <string name="no_url">No URL to open!</string>
+    <string name="no_title">No Title</string>
+</resources>
