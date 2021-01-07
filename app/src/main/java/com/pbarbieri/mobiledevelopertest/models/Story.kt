@@ -33,12 +33,18 @@ class Story(storyObj: JSONObject) {
         val utc = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         val local = SimpleDateFormat("dd-MM-yy hh:mm a")
         utc.timeZone = TimeZone.getTimeZone("UTC")
-        local.timeZone = TimeZone.getTimeZone("America/Caracas")
+        val calendar: Calendar = GregorianCalendar()
+        val localTimeZone = calendar.timeZone
+        local.timeZone = TimeZone.getTimeZone(localTimeZone.toZoneId())
 
         val parser = SimpleDateFormat("dd-MM-yy hh:mm a")
         val time = local.format(utc.parse(created_at)!!)
         val now = System.currentTimeMillis()
-        val ago = DateUtils.getRelativeTimeSpanString(parser.parse(time)!!.time, now, DateUtils.MINUTE_IN_MILLIS)
+        val ago = DateUtils.getRelativeTimeSpanString(
+            parser.parse(time)!!.time,
+            now,
+            DateUtils.MINUTE_IN_MILLIS
+        )
         return ago as String
     }
 
